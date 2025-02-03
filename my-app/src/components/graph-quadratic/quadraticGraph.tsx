@@ -81,6 +81,9 @@ const QuadraticGraph = () => {
                         points={parabolaPoints.map(p => `${p.x},${p.y}`).join(" ")}
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}
                     />
+
+                    <line x1={centerX + vertexX * scale} y1="0" x2={centerX + vertexX * scale} y2={height} stroke="green" strokeDasharray="5,5" />
+
                     {/* Traços e números no eixo X */}
                     {Array.from({ length: width / scale }, (_, i) => i - Math.floor(width / (2 * scale))).map((x) => (
                         <g key={`tick-x-${x}`}>
@@ -146,44 +149,44 @@ const QuadraticGraph = () => {
                 )}
 
                 {/* Modo Passo a Passo */}
-<div className="mt-4 p-4 border rounded-md">
-    <h2 className="text-lg font-semibold">Modo Passo a Passo</h2>
+                <div className="mt-4 p-4 border rounded-md">
+                    <h2 className="text-lg font-semibold">Modo Passo a Passo</h2>
 
-    {step === 1 && (
-        <p>1️⃣ Calculamos o discriminante da equação quadrática usando a fórmula:  
-            <pre className="bg-gray-100 p-2 rounded-xl w-min px-6 my-2"><code>Δ = b² - 4ac</code></pre>
-            Com os valores atuais:  
-            <strong>Δ = {bNum}² - 4 × {aNum} × {cNum} = {delta}</strong>
-        </p>
-    )}
+                    {step === 1 && (
+                        <p>1️⃣ Calculamos o discriminante da equação quadrática usando a fórmula:
+                            <pre className="bg-gray-100 p-2 rounded-xl w-min px-6 my-2"><code>Δ = b² - 4ac</code></pre>
+                            Com os valores atuais:
+                            <strong>Δ = {bNum}² - 4 × {aNum} × {cNum} = {delta}</strong>
+                        </p>
+                    )}
 
-    {step === 2 && (
-        <p>2️⃣ Agora analisamos o valor de Δ:  
-            {delta > 0 && "Como Δ > 0, há duas raízes reais distintas."}
-            {delta === 0 && "Como Δ = 0, há apenas uma raiz real."}
-            {delta < 0 && "Como Δ < 0, não existem raízes reais."}
-        </p>
-    )}
+                    {step === 2 && (
+                        <p>2️⃣ Agora analisamos o valor de Δ:
+                            {delta > 0 && "Como Δ > 0, há duas raízes reais distintas."}
+                            {delta === 0 && "Como Δ = 0, há apenas uma raiz real."}
+                            {delta < 0 && "Como Δ < 0, não existem raízes reais."}
+                        </p>
+                    )}
 
-    {step === 3 && delta >= 0 && (
-        <p>3️⃣ Aplicamos a fórmula de Bhaskara para encontrar as raízes:
-            <pre className="bg-gray-100 p-2 rounded-xl w-min px-6 my-2"><code>x = (-b ± √Δ) / 2a</code></pre>
-            Substituindo os valores:
-            <br />
-            <strong>x₁ = (-{bNum} + √{delta}) / (2 × {aNum}) = {roots[0]?.x.toFixed(2)}</strong>
-            <br />
-            <strong>x₂ = (-{bNum} - √{delta}) / (2 × {aNum}) = {roots[1]?.x.toFixed(2)}</strong>
-        </p>
-    )}
+                    {step === 3 && delta >= 0 && (
+                        <p>3️⃣ Aplicamos a fórmula de Bhaskara para encontrar as raízes:
+                            <pre className="bg-gray-100 p-2 rounded-xl w-min px-6 my-2"><code>x = (-b ± √Δ) / 2a</code></pre>
+                            Substituindo os valores:
+                            <br />
+                            <strong>x₁ = (-{bNum} + √{delta}) / (2 × {aNum}) = {roots[0]?.x.toFixed(2)}</strong>
+                            <br />
+                            <strong>x₂ = (-{bNum} - √{delta}) / (2 × {aNum}) = {roots[1]?.x.toFixed(2)}</strong>
+                        </p>
+                    )}
 
-    {step === 3 && delta < 0 && (
-        <p>3️⃣ Como Δ {'<'} 0, a equação não tem raízes reais.</p>
-    )}
+                    {step === 3 && delta < 0 && (
+                        <p>3️⃣ Como Δ {'<'} 0, a equação não tem raízes reais.</p>
+                    )}
 
-    <button onClick={() => setStep(step < 3 ? step + 1 : 1)} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded">
-        Próximo Passo
-    </button>
-</div>
+                    <button onClick={() => setStep(step < 3 ? step + 1 : 1)} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded">
+                        Próximo Passo
+                    </button>
+                </div>
             </div>
 
             {/* Container Direito */}

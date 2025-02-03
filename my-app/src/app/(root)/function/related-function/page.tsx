@@ -1,5 +1,5 @@
 import React from 'react';
-import RelatedGraph from '../../../components/graph-related/relatedGraph';
+import RelatedGraph from '@/components/graph-related/relatedGraph';
 
 const firstDegree = () => {
     return (

@@ -32,7 +32,7 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
         <nav className="mt-16 space-y-4">
 
           <div className="space-x-2 flex w-full">
-            <Link href="/home" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
+            <Link href="/home"  className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
               <TbHome /> Início
             </Link>
             <Link href="/about" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
@@ -42,11 +42,14 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
           
           <p className="text-2xl">Funções</p>
           <div className="space-y-2">
-            <Link href="function/related-function" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
+            <Link href="/function/related-function" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
               <TbArrowRight /> Função Afim
             </Link>  
-            <Link href="function/quadratic-function" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
+            <Link href="/function/quadratic-function" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
               <TbArrowRight /> Função Quadrática
+            </Link> 
+            <Link href="/function/trig-function" className="w-full flex items-center gap-3 p-3 rounded-2xl bg-gray-100 hover:bg-gray-100 border border-gray-300">
+              <TbArrowRight /> Função Trigonométrica
             </Link>            
           </div>
 
